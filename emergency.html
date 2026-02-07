@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SOS Emergency Rider Info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff4d4d;
+        }
+
+        h2 {
+            border-bottom: 1px solid #00ffff;
+            padding-bottom: 5px;
+            color: #00ffff;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .info-row span {
+            font-weight: bold;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            background: #ff4d4d;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ff1a1a;
+        }
+
+        .btn.secondary {
+            background: #00c6ff;
+        }
+
+        .btn.secondary:hover {
+            background: #0099cc;
+        }
+
+        .warning {
+            background: rgba(255, 77, 77, 0.2);
+            border-left: 5px solid red;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🚨 SOS Emergency Information 🚨</h1>
+
+    <div class="card">
+        <h2>👤 Rider Information</h2>
+        <div class="info-row"><span>Name:</span> Rahul Sharma</div>
+        <div class="info-row"><span>Age:</span> 22</div>
+        <div class="info-row"><span>Blood Group:</span> O+</div>
+        <div class="info-row"><span>Vehicle No:</span> MH12 AB 1234</div>
+    </div>
+
+    <div class="card">
+        <h2>📞 Emergency Contacts</h2>
+        <div class="info-row"><span>Father:</span> +91 98765 43210</div>
+        <div class="info-row"><span>Mother:</span> +91 91234 56789</div>
+        <div class="info-row"><span>Primary Contact:</span> +91 90000 11111</div>
+
+        <div class="btn-group">
+            <a href="tel:+919000011111" class="btn">📞 Call Family</a>
+            <a href="tel:112" class="btn secondary">🚑 Call Ambulance (112)</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🩺 Medical Information</h2>
+        <div class="info-row"><span>Allergies:</span> None</div>
+        <div class="info-row"><span>Medical Conditions:</span> Asthma</div>
+        <div class="warning">
+            ⚠️ If unconscious, please check breathing and call emergency services immediately.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📍 Accident Location</h2>
+        <div class="info-row"><span>Location:</span> Near NH-48, Pune</div>
+        <div class="info-row"><span>Time:</span> 06 Feb 2026, 10:45 PM</div>
+
+        <div class="btn-group">
+            <a href="https://maps.google.com/?q=18.5204,73.8567" target="_blank" class="btn secondary">
+                📍 Open in Maps
+            </a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
