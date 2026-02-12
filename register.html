@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Registration | SOS Guard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .container {
+      background: #020617;
+      width: 100%;
+      max-width: 900px;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0,229,255,0.15);
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 25px;
+      text-align: center;
+      border-bottom: 1px solid #020617;
+    }
+
+    .header h2 {
+      color: #00e5ff;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .steps span.active {
+      color: #00e5ff;
+      font-weight: 600;
+    }
+
+    .form-wrapper {
+      padding: 30px;
+    }
+
+    .form-step {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field label {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      margin-bottom: 5px;
+    }
+
+    .field input, .field textarea, .field select {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #1e293b;
+      background: #020617;
+      color: #fff;
+      outline: none;
+    }
+
+    .field input:focus, .field textarea:focus {
+      border-color: #00e5ff;
+    }
+
+    textarea {
+      resize: none;
+      min-height: 80px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 10px 24px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #00e5ff;
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background: #00bcd4;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #00e5ff;
+      color: #00e5ff;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0,229,255,0.1);
+    }
+
+    .success {
+      text-align: center;
+      padding: 40px;
+    }
+
+    .success h3 {
+      color: #00e5ff;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h2>User Registration</h2>
+      <div class="steps">
+        <span id="step1Label" class="active">1️⃣ User Details</span>
+        <span id="step2Label">2️⃣ Emergency & Medical</span>
+      </div>
+    </div>
+
+    <div class="form-wrapper">
+
+      <!-- Step 1 -->
+      <div class="form-step active" id="step1">
+        <h3>Phase 1: User & Vehicle Details</h3>
+        <br>
+
+        <div class="grid">
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Enter full name" required>
+          </div>
+
+          <div class="field">
+            <label>Age</label>
+            <input type="number" id="age" placeholder="Enter age" required>
+          </div>
+
+          <div class="field">
+            <label>Mobile Number</label>
+            <input type="tel" id="mobile" placeholder="+91 XXXXXXXX" required>
+          </div>
+
+          <div class="field">
+            <label>Vehicle Number</label>
+            <input type="text" id="vehicle" placeholder="GJ-01-AB-1234" required>
+          </div>
+
+          <div class="field">
+            <label>Blood Group</label>
+            <select id="blood">
+              <option value="">Select</option>
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+              <option>O+</option>
+              <option>O-</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <div></div>
+          <button class="btn btn-primary" onclick="nextStep()">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-step" id="step2">
+        <h3>Phase 2: Emergency Contacts & Medical Info</h3>
+        <br>
+
+        <div class="grid">
+          <div class="field">
+            <label>Father's Name</label>
+            <input type="text" id="father">
+          </div>
+
+          <div class="field">
+            <label>Father's Mobile</label>
+            <input type="tel" id="fatherMobile">
+          </div>
+
+          <div class="field">
+            <label>Mother's Name</label>
+            <input type="text" id="mother">
+          </div>
+
+          <div class="field">
+            <label>Mother's Mobile</label>
+            <input type="tel" id="motherMobile">
+          </div>
+
+          <div class="field">
+            <label>Other Emergency Contact</label>
+            <input type="tel" id="otherContact">
+          </div>
+
+          <div class="field">
+            <label>Allergies</label>
+            <input type="text" id="allergy" placeholder="e.g. Penicillin, Peanuts">
+          </div>
+
+          <div class="field">
+            <label>Medical Conditions</label>
+            <textarea id="medical" placeholder="e.g. Asthma, Diabetes"></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-secondary" onclick="prevStep()">← Back</button>
+          <button class="btn btn-primary" onclick="submitForm()">Submit</button>
+        </div>
+      </div>
+
+      <!-- Success -->
+      <div class="form-step" id="success">
+        <div class="success">
+          <h3>✅ Registration Completed</h3>
+          <p>Your emergency profile has been saved successfully.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function nextStep() {
+      document.getElementById("step1").classList.remove("active");
+      document.getElementById("step2").classList.add("active");
+      document.getElementById("step1Label").classList.remove("active");
+      document.getElementById("step2Label").classList.add("active");
+    }
+
+    function prevStep() {
+      document.getElementById("step2").classList.remove("active");
+      document.getElementById("step1").classList.add("active");
+      document.getElementById("step2Label").classList.remove("active");
+      document.getElementById("step1Label").classList.add("active");
+    }
+
+    function submitForm() {
+      document.getElementById("step2").classList.remove("active");
+      document.getElementById("success").classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
